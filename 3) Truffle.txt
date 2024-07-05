@@ -1,0 +1,46 @@
+﻿3) Demonstrate the process of deploying smart contracts on
+Ganache using Truffle suite. 
+
+
+Ans. The process of deploying Smart contracts on Ganache using Truffle Suite are:
+
+
+1. Install Truffle and Ganache using the commands on command window:
+npm install -g truffle
+npm install -g ganache-cli
+2. Start Ganache: 
+Ganache-cli
+3. Initialize a truffle project
+Create a New Truffle Project: In your terminal, navigate to your desired directory and initialize a new Truffle project:
+mkdir MyTruffleProject
+cd MyTruffleProject
+truffle init
+   4. Create a Solidity File: In the contracts directory, create a new file called SimpleStorage.sol:
+  
+
+   5. Configure Truffle to Connect to Ganache
+Update truffle-config.js: Open the truffle-config.js file and configure it to connect to Ganache. Add or update the development network configuration
+   6. Create a Migration Script: In the migrations directory, create a new migration script called 2_deploy_contracts.js:
+  
+
+   7. Deploy the Contract
+Compile the Contract: Compile your Solidity contracts by running:
+truffle compile
+   8. Deploy the Contract: Deploy your contract to the Ganache network by running:
+truffle migrate --network development
+   9. Interact with the Deployed Contract
+Open Truffle Console: To interact with your deployed contract, open the Truffle console:
+truffle console --network development
+      10. Interact with the Contract: Once in the console, you can interact with your deployed contract. 
+// Get the deployed contract instance
+let instance = await SimpleStorage.deployed();
+
+
+// Set a value
+await instance.set(42);
+
+
+// Get the value
+let value = await instance.get();
+console.log(value.toString());  // Should print "42"
+By following these steps, you should be able to write, compile, and deploy a Solidity smart contract to a local Ganache blockchain using Truffle, and interact with it via the Truffle console.
